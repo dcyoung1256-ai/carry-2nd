@@ -1,0 +1,301 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DC GADGET | Gaming Top Up Store</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #080d19;
+  color: white;
+}
+
+header {
+  padding: 22px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #101a2c;
+  border-bottom: 1px solid #26354c;
+}
+
+.logo {
+  font-size: 23px;
+  font-weight: bold;
+  color: #38bdf8;
+}
+
+.logo span {
+  color: white;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+}
+
+.hero {
+  text-align: center;
+  padding: 85px 20px;
+  background: linear-gradient(135deg,#102b50,#080d19);
+}
+
+.hero h1 {
+  font-size: 38px;
+  margin-bottom: 15px;
+}
+
+.hero h1 span {
+  color: #38bdf8;
+}
+
+.hero p {
+  color: #b6c4d8;
+  line-height: 1.7;
+}
+
+.hero button, .order-btn {
+  background: #0284c7;
+  color: white;
+  border: none;
+  padding: 14px 25px;
+  border-radius: 8px;
+  margin-top: 22px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+section {
+  padding: 55px 7%;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 28px;
+}
+
+.games {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+  gap: 22px;
+}
+
+.game-card {
+  background: #142138;
+  border: 1px solid #293c58;
+  border-radius: 14px;
+  padding: 25px;
+  text-align: center;
+  transition: .3s;
+}
+
+.game-card:hover {
+  transform: translateY(-6px);
+  border-color: #38bdf8;
+}
+
+.game-card h3 {
+  margin: 12px 0;
+}
+
+.game-card p {
+  color: #aab9cd;
+}
+
+.game-icon {
+  font-size: 45px;
+}
+
+.game-card button {
+  margin-top: 18px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 7px;
+  background: #0284c7;
+  color: white;
+  cursor: pointer;
+}
+
+.order {
+  background: #101a2c;
+  border-radius: 15px;
+  padding: 30px;
+  max-width: 600px;
+  margin: auto;
+}
+
+.order input, .order select {
+  width: 100%;
+  padding: 14px;
+  margin: 10px 0;
+  background: #080d19;
+  color: white;
+  border: 1px solid #34445c;
+  border-radius: 7px;
+}
+
+.order-btn {
+  width: 100%;
+}
+
+footer {
+  text-align: center;
+  padding: 30px;
+  background: #101a2c;
+  color: #9caec4;
+}
+
+footer strong {
+  color: #38bdf8;
+}
+
+@media(max-width:600px) {
+  .hero h1 {
+    font-size: 29px;
+  }
+
+  nav a {
+    margin-left: 8px;
+    font-size: 12px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">DC <span>GADGET</span></div>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#games">Games</a>
+    <a href="#order">Order</a>
+  </nav>
+</header>
+
+<div class="hero" id="home">
+  <h1>WELCOME TO <span>DC GADGET</span></h1>
+  <p>Your trusted destination for fast and reliable gaming top-ups.</p>
+  <p>Get your favourite game currencies with ease.</p>
+  <button onclick="document.getElementById('games').scrollIntoView({behavior:'smooth'})">
+    Explore Games
+  </button>
+</div>
+
+<section id="games">
+  <h2 class="section-title">Choose Your Game</h2>
+
+  <div class="games">
+
+    <div class="game-card">
+      <div class="game-icon">🎯</div>
+      <h3>Call of Duty Mobile</h3>
+      <p>COD Points Top Up</p>
+      <button onclick="chooseGame('Call of Duty Mobile')">Top Up Now</button>
+    </div>
+
+    <div class="game-card">
+      <div class="game-icon">🔥</div>
+      <h3>Free Fire</h3>
+      <p>Diamonds Top Up</p>
+      <button onclick="chooseGame('Free Fire')">Top Up Now</button>
+    </div>
+
+    <div class="game-card">
+      <div class="game-icon">🎮</div>
+      <h3>PUBG Mobile</h3>
+      <p>UC Top Up</p>
+      <button onclick="chooseGame('PUBG Mobile')">Top Up Now</button>
+    </div>
+
+    <div class="game-card">
+      <div class="game-icon">⚡</div>
+      <h3>Other Games</h3>
+      <p>More gaming services coming soon</p>
+      <button onclick="chooseGame('Other Games')">Enquire Now</button>
+    </div>
+
+  </div>
+</section>
+
+<section id="order">
+  <h2 class="section-title">Place Your Order</h2>
+
+  <div class="order">
+    <form onsubmit="sendOrder(event)">
+
+      <input id="customer" type="text"
+      placeholder="Your Name" required>
+
+      <select id="game" required>
+        <option value="">Select Game</option>
+        <option>Call of Duty Mobile</option>
+        <option>Free Fire</option>
+        <option>PUBG Mobile</option>
+        <option>Other Games</option>
+      </select>
+
+      <input id="playerID" type="text"
+      placeholder="Player ID / UID" required>
+
+      <input id="package" type="text"
+      placeholder="Top-up Package" required>
+
+      <button class="order-btn" type="submit">
+        ORDER VIA WHATSAPP
+      </button>
+
+    </form>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 <strong>DC GADGET</strong></p>
+  <p>Gaming Top Up Store. All rights reserved.</p>
+</footer>
+
+<script>
+function chooseGame(game) {
+  document.getElementById("game").value = game;
+  document.getElementById("order").scrollIntoView({
+    behavior: "smooth"
+  });
+}
+
+function sendOrder(event) {
+  event.preventDefault();
+
+  const name = document.getElementById("customer").value;
+  const game = document.getElementById("game").value;
+  const id = document.getElementById("playerID").value;
+  const pack = document.getElementById("package").value;
+
+  const phone = "2349040620743";
+
+  const message =
+    `Hello DC GADGET!%0A` +
+    `Name: ${name}%0A` +
+    `Game: ${game}%0A` +
+    `Player ID: ${id}%0A` +
+    `Package: ${pack}`;
+
+  window.open(
+    `https://wa.me/${phone}?text=${message}`,
+    "_blank"
+  );
+}
+</script>
+
+</body>
+</html>
